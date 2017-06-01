@@ -6,7 +6,7 @@
 #    By: gavizet <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/01 14:43:03 by gavizet           #+#    #+#              #
-#    Updated: 2017/06/01 16:44:15 by gavizet          ###   ########.fr        #
+#    Updated: 2017/06/01 17:10:44 by gavizet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,55 +30,61 @@ NAME 		= libft.a
 
 #-------------------------------| COMPILATION |--------------------------------#
 CC			= gcc
-FLAGS		= -Wall -Wextra -Werror
+FLAGS		= -Wall -Wextra -Werror -O3
 MAKE		= make -C
 #------------------------------------------------------------------------------#
 
 #---------------------------------| INCLUDES |---------------------------------#
+SRCSPATH		= srcs/
 OBJPATH			= objs/
 INCPATH			= includes/
-MATHS_PATH		= srcs/maths/
-PRINT_PATH		= srcs/print/
-UTILS_PATH		= srcs/utils/
-MEM_PATH		= srcs/memory/
-STR_PATH		= srcs/string/
-FT_PRINTF_PATH	= srcs/ft_printf/
-LL_PATH			= srcs/linked_list/
 #------------------------------------------------------------------------------#
 
 #------------------------------| SOURCE FILES |--------------------------------#
-FT_PRINTF	= cast.c check.c utils.c ft_printf.c parse_args.c manage_int.c	\
-			  manage_char.c	manage_hexa.c manage_octal.c manage_wchar.c		\
-			  manage_binary.c manage_string.c manage_percent.c				\
-			  manage_pointer.c manage_uns_int.c	manage_wstring.c			\
-			  get_conversion.c
+PRINTF		= printf/cast.c printf/check.c printf/utils.c					\
+			  printf/ft_printf.c printf/parse_args.c printf/manage_int.c	\
+			  printf/manage_char.c	printf/manage_hexa.c					\
+			  printf/manage_octal.c printf/manage_wchar.c					\
+			  printf/manage_binary.c printf/manage_string.c					\
+			  printf/manage_percent.c printf/manage_pointer.c				\
+			  printf/manage_uns_int.c	printf/manage_wstring.c				\
+			  printf/get_conversion.c
 
-LL			= ft_lstadd.c ft_lstcmp.c ft_lstdel.c ft_lstmap.c ft_lstnew.c	\
-			  ft_lstrev.c ft_lstsize.c ft_lstiter.c ft_lstclear.c			\
-			  ft_lstprint.c	ft_lstdelone.c ft_lstaddback.c
+LST			= lst/ft_lstadd.c lst/ft_lstcmp.c lst/ft_lstdel.c				\
+			  lst/ft_lstmap.c lst/ft_lstnew.c lst/ft_lstrev.c				\
+			  lst/ft_lstsize.c lst/ft_lstiter.c lst/ft_lstclear.c			\
+			  lst/ft_lstprint.c	lst/ft_lstdelone.c lst/ft_lstaddback.c
 
-MATHS		= ft_abs.c ft_pow.c	ft_atoi.c ft_itoa.c ft_sqrt.c ft_rec_fac.c	\
-			  reverse_octet.c ft_itoa_base_uns.c ft_itoa_base_signed.c
+MATHS		= maths/ft_abs.c maths/ft_pow.c	maths/ft_atoi.c maths/ft_itoa.c	\
+			  maths/ft_sqrt.c maths/ft_rec_fac.c maths/reverse_octet.c		\
+			  maths/ft_itoa_base_uns.c maths/ft_itoa_base_signed.c
 
-MEMORY		= ft_bzero.c ft_memcpy.c ft_memchr.c ft_memcmp.c ft_memdel.c	\
-			  ft_memset.c ft_memccpy.c ft_memmove.c	free_tab2d.c			\
-			  ft_memalloc.c
+MEM			= mem/ft_bzero.c mem/ft_memcpy.c mem/ft_memchr.c				\
+			  mem/ft_memcmp.c mem/ft_memdel.c mem/ft_memset.c				\
+			  mem/ft_memccpy.c mem/ft_memmove.c	mem/free_tab2d.c			\
+			  mem/ft_memalloc.c
 
-PRINT		= ft_putnbr.c ft_putstr.c ft_putchar.c ft_putendl.c				\
-			  ft_putwchar.c	ft_putnwstr.c ft_putnbr_fd.c ft_putstr_fd.c		\
-			  ft_putendl_fd.c ft_putchar_fd.c ft_putnbr_base.c
+OUTPUT		= output/ft_putnbr.c output/ft_putstr.c output/ft_putchar.c		\
+			  output/ft_putendl.c output/ft_putwchar.c						\
+			  output/ft_putnwstr.c output/ft_putnbr_fd.c					\
+			  output/ft_putstr_fd.c	output/ft_putendl_fd.c					\
+			  output/ft_putchar_fd.c output/ft_putnbr_base.c
 
-STRING		= ft_strcat.c ft_strchr.c ft_strclr.c ft_strcmp.c ft_strcpy.c	\
-			  ft_strdel.c ft_strdup.c ft_strequ.c ft_strlen.c ft_strmap.c	\
-			  ft_strnew.c ft_strrev.c ft_strstr.c ft_strsub.c ft_strnstr.c	\
-			  ft_strrchr.c ft_striter.c ft_strjoin.c ft_strlcat.c 			\
-			  ft_strtrim.c ft_wstrlen.c ft_strmapi.c ft_strncat.c			\
-			  ft_strncmp.c ft_strncpy.c ft_strnequ.c ft_striteri.c			\
-			  ft_strsplit.c ft_str_isdigit.c ft_calc_wstrlen.c
+STR			= str/ft_strcat.c str/ft_strchr.c str/ft_strclr.c				\
+			  str/ft_strcmp.c str/ft_strcpy.c str/ft_strdel.c				\
+			  str/ft_strdup.c str/ft_strequ.c str/ft_strlen.c				\
+			  str/ft_strmap.c str/ft_strnew.c str/ft_strrev.c				\
+			  str/ft_strstr.c str/ft_strsub.c str/ft_strnstr.c				\
+			  str/ft_strrchr.c str/ft_striter.c str/ft_strjoin.c			\
+			  str/ft_strlcat.c str/ft_strtrim.c str/ft_wstrlen.c			\
+			  str/ft_strmapi.c str/ft_strncat.c str/ft_strncmp.c			\
+			  str/ft_strncpy.c str/ft_strnequ.c str/ft_striteri.c			\
+			  str/ft_strsplit.c str/ft_str_isdigit.c str/ft_calc_wstrlen.c
 
-UTILS		= ft_swap.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c	\
-			  ft_islower.c ft_isprint.c ft_isupper.c ft_tolower.c			\
-			  ft_toupper.c get_next_line.c
+UTILS		= utils/ft_swap.c utils/ft_isalnum.c utils/ft_isalpha.c			\
+			  utils/ft_isascii.c utils/ft_isdigit.c							\
+			  utils/ft_islower.c utils/ft_isprint.c utils/ft_isupper.c		\
+			  utils/ft_tolower.c utils/ft_toupper.c utils/get_next_line.c
 #------------------------------------------------------------------------------#
 
 #---------------------------------| OBJECTS |----------------------------------#
@@ -90,26 +96,15 @@ OBJS	= $(SRCS:%.c=%.o)
 all : $(NAME)
 
 %.o: %.c
-	@$(CC) $(FLAGS) -c -o $@ $<
-	@echo "$(BLUE)Creating object file -> $(WHITE)$(notdir $@)... $(RED)[Done]"
 
-$(NAME) : $(OBJS)
-	@echo "$(YELLOW)Creating library [$(NAME)] from object files..."
-	@ar rc $(NAME) $(OBJS)			
-	@ranlib $(NAME)
-	@echo "$(GREEN)[$(NAME)] was successfully created"
+$(NAME) :
 
 .PHONY	:	clean fclean
 
 clean:
-	@/bin/rm -f $(OBJS)
-	@echo "$(RED)[.o] files were deleted from [Project : Libft]."
 
 
 fclean:
-	@/bin/rm -f $(OBJS)
-	@/bin/rm -f $(NAME)
-	@echo "$(RED)[$(NAME)] and [.o] files were deleted from [Project : Libft].$(NOC)"
 
 re:		fclean all
 #------------------------------------------------------------------------------#
