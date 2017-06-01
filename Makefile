@@ -5,113 +5,93 @@
 #                                                     +:+ +:+         +:+      #
 #    By: gavizet <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2016/08/16 21:13:36 by gavizet           #+#    #+#              #
-#    Updated: 2017/04/19 13:17:58 by gavizet          ###   ########.fr        #
+#    Created: 2017/06/01 14:43:03 by gavizet           #+#    #+#              #
+#    Updated: 2017/06/01 16:44:15 by gavizet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-### COLORS ###
+#---------------------------------| COLORS |-----------------------------------#
 NOC			= \033[0m
-BLACK		= \033[1;30m
-RED			= \033[1;31m
-GREEN		= \033[1;32m
-YELLOW		= \033[1;33m
-BLUE		= \033[1;34m
-VIOLET		= \033[1;35m
-CYAN		= \033[1;36m
-WHITE		= \033[1;37m
+BOLD		= \033[1m
+UNDERLINE	= \033[4m
+BLACK		= \033[0;30m
+RED			= \033[0;31m
+GREEN		= \033[0;32m
+YELLOW		= \033[0;33m
+BLUE		= \033[0;34m
+VIOLET		= \033[0;35m
+CYAN		= \033[0;36m
+WHITE		= \033[0;37m
+#------------------------------------------------------------------------------#
 
-### LIBFT ###
-NAME 	= libft.a
+#--------------------------------| LIBRARY |-----------------------------------#
+NAME 		= libft.a
+#------------------------------------------------------------------------------#
 
-### COMPILATION ###
-CC		= gcc
-FLAGS	= -Wall -Werror -Wextra -c -o
+#-------------------------------| COMPILATION |--------------------------------#
+CC			= gcc
+FLAGS		= -Wall -Wextra -Werror
+MAKE		= make -C
+#------------------------------------------------------------------------------#
 
-## SOURCES ###
-SRCS	= ft_memalloc.c		\
-		  ft_swap.c			\
-		  ft_putendl_fd.c	\
-		  ft_strequ.c		\
-		  ft_strnew.c		\
-		  ft_memccpy.c		\
-		  ft_putnbr.c		\
-		  ft_striter.c		\
-		  ft_strnstr.c		\
-		  ft_memchr.c		\
-		  ft_putnbr_fd.c	\
-		  ft_striteri.c		\
-		  ft_strrchr.c		\
-		  ft_atoi.c			\
-		  ft_memcmp.c		\
-		  ft_putstr.c		\
-		  ft_strjoin.c		\
-		  ft_strrev.c		\
-		  ft_bzero.c		\
-		  ft_memcpy.c		\
-		  ft_putstr_fd.c	\
-		  ft_strlcat.c		\
-		  ft_strsplit.c		\
-		  ft_memdel.c		\
-		  ft_strcat.c		\
-		  ft_strlen.c		\
-		  ft_lstclear.c		\
-		  ft_lstrev.c		\
-		  ft_lstsize.c		\
-		  ft_strstr.c		\
-		  ft_isalnum.c		\
-		  ft_memmove.c		\
-		  ft_strchr.c		\
-		  ft_strmap.c		\
-		  ft_lstprint.c		\
-		  ft_strsub.c		\
-		  ft_isalpha.c		\
-		  ft_memset.c		\
-		  ft_strclr.c		\
-		  ft_strmapi.c		\
-		  ft_strtrim.c		\
-		  ft_isascii.c		\
-		  ft_strcmp.c		\
-		  ft_strncat.c		\
-		  ft_tolower.c		\
-		  ft_isdigit.c		\
-		  ft_putchar.c		\
-		  ft_strcpy.c		\
-		  ft_strncmp.c		\
-		  ft_toupper.c		\
-		  ft_isprint.c		\
-		  ft_putchar_fd.c	\
-		  ft_strdel.c		\
-		  ft_strncpy.c		\
-		  ft_itoa.c			\
-		  ft_putendl.c		\
-		  ft_strdup.c		\
-		  ft_strnequ.c		\
-		  ft_lstdel.c		\
-		  ft_lstdelone.c	\
-		  ft_lstiter.c		\
-		  ft_lstmap.c		\
-		  ft_lstnew.c		\
-		  ft_lstadd.c		\
-		  ft_lstaddback.c	\
-		  ft_sqrt.c			\
-		  ft_rec_fac.c		\
-		  ft_islower.c		\
-		  ft_isupper.c		\
-		  ft_match.c		\
-		  ft_abs.c			\
-		  ft_pow.c			\
-		  get_next_line.c
+#---------------------------------| INCLUDES |---------------------------------#
+OBJPATH			= objs/
+INCPATH			= includes/
+MATHS_PATH		= srcs/maths/
+PRINT_PATH		= srcs/print/
+UTILS_PATH		= srcs/utils/
+MEM_PATH		= srcs/memory/
+STR_PATH		= srcs/string/
+FT_PRINTF_PATH	= srcs/ft_printf/
+LL_PATH			= srcs/linked_list/
+#------------------------------------------------------------------------------#
 
-### OBJECTS ###
+#------------------------------| SOURCE FILES |--------------------------------#
+FT_PRINTF	= cast.c check.c utils.c ft_printf.c parse_args.c manage_int.c	\
+			  manage_char.c	manage_hexa.c manage_octal.c manage_wchar.c		\
+			  manage_binary.c manage_string.c manage_percent.c				\
+			  manage_pointer.c manage_uns_int.c	manage_wstring.c			\
+			  get_conversion.c
+
+LL			= ft_lstadd.c ft_lstcmp.c ft_lstdel.c ft_lstmap.c ft_lstnew.c	\
+			  ft_lstrev.c ft_lstsize.c ft_lstiter.c ft_lstclear.c			\
+			  ft_lstprint.c	ft_lstdelone.c ft_lstaddback.c
+
+MATHS		= ft_abs.c ft_pow.c	ft_atoi.c ft_itoa.c ft_sqrt.c ft_rec_fac.c	\
+			  reverse_octet.c ft_itoa_base_uns.c ft_itoa_base_signed.c
+
+MEMORY		= ft_bzero.c ft_memcpy.c ft_memchr.c ft_memcmp.c ft_memdel.c	\
+			  ft_memset.c ft_memccpy.c ft_memmove.c	free_tab2d.c			\
+			  ft_memalloc.c
+
+PRINT		= ft_putnbr.c ft_putstr.c ft_putchar.c ft_putendl.c				\
+			  ft_putwchar.c	ft_putnwstr.c ft_putnbr_fd.c ft_putstr_fd.c		\
+			  ft_putendl_fd.c ft_putchar_fd.c ft_putnbr_base.c
+
+STRING		= ft_strcat.c ft_strchr.c ft_strclr.c ft_strcmp.c ft_strcpy.c	\
+			  ft_strdel.c ft_strdup.c ft_strequ.c ft_strlen.c ft_strmap.c	\
+			  ft_strnew.c ft_strrev.c ft_strstr.c ft_strsub.c ft_strnstr.c	\
+			  ft_strrchr.c ft_striter.c ft_strjoin.c ft_strlcat.c 			\
+			  ft_strtrim.c ft_wstrlen.c ft_strmapi.c ft_strncat.c			\
+			  ft_strncmp.c ft_strncpy.c ft_strnequ.c ft_striteri.c			\
+			  ft_strsplit.c ft_str_isdigit.c ft_calc_wstrlen.c
+
+UTILS		= ft_swap.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c	\
+			  ft_islower.c ft_isprint.c ft_isupper.c ft_tolower.c			\
+			  ft_toupper.c get_next_line.c
+#------------------------------------------------------------------------------#
+
+#---------------------------------| OBJECTS |----------------------------------#
 OBJS	= $(SRCS:%.c=%.o)
+#------------------------------------------------------------------------------#
 
 
-### RULES ###
+#----------------------------------| RULES |-----------------------------------#
 all : $(NAME)
 
 %.o: %.c
-	@$(CC) $(FLAGS) $@ $<
+	@$(CC) $(FLAGS) -c -o $@ $<
+	@echo "$(BLUE)Creating object file -> $(WHITE)$(notdir $@)... $(RED)[Done]"
 
 $(NAME) : $(OBJS)
 	@echo "$(YELLOW)Creating library [$(NAME)] from object files..."
@@ -119,18 +99,17 @@ $(NAME) : $(OBJS)
 	@ranlib $(NAME)
 	@echo "$(GREEN)[$(NAME)] was successfully created"
 
+.PHONY	:	clean fclean
+
 clean:
-	@echo "$(YELLOW)Deleting object files from [Project : Libft]..."
-	@/bin/rm -rf $(OBJS)
-	@echo "$(GREEN)Object files were successfully deleted from [Project : Libft]."
+	@/bin/rm -f $(OBJS)
+	@echo "$(RED)[.o] files were deleted from [Project : Libft]."
 
 
 fclean:
-	@echo "$(YELLOW)Deleting object files from [Project : Libft]..."
-	@/bin/rm -rf $(OBJS)
-	@echo "$(GREEN)Object files were successfully deleted from [Project : Libft]."
-	@echo "$(YELLOW)Deleting library [$(NAME)] from [Project : Libft]..."
-	@/bin/rm -rf $(NAME)
-	@echo "$(GREEN)Library [$(NAME)] was successfully deleted from [Project : Libft].$(NOC)"
+	@/bin/rm -f $(OBJS)
+	@/bin/rm -f $(NAME)
+	@echo "$(RED)[$(NAME)] and [.o] files were deleted from [Project : Libft].$(NOC)"
 
 re:		fclean all
+#------------------------------------------------------------------------------#

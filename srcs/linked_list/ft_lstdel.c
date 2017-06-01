@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gavizet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/03 14:47:59 by gavizet           #+#    #+#             */
-/*   Updated: 2017/05/04 16:24:28 by gavizet          ###   ########.fr       */
+/*   Created: 2016/11/08 00:26:29 by gavizet           #+#    #+#             */
+/*   Updated: 2017/05/13 21:16:49 by gavizet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+void	ft_lstdel(t_list **alst, void (*del) (void *, size_t))
 {
-	int			sign;
-	int			i;
-	long int	res;
+	t_list	*elem;
+	t_list	*next;
 
-	i = 0;
-	res = 0;
-	while ((str[i] == '\v' || str[i] == '\n' || str[i] == '\t' ||
-				str[i] == '\f' || str[i] == '\r' || str[i] == ' ') && str[i])
-		i++;
-	sign = (str[i] == '-') ? -1 : 1;
-	if (str[i] == '+' || str[i] == '-')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9' && str[i])
+	elem = *alst;
+	while (elem)
 	{
-		res *= 10;
-		res += str[i] - 48;
-		i++;
+		next = elem->next;
+		del(elem->content, elem->content_size);
+		free(elem);
+		elem = next;
 	}
-	return (res * sign);
+	*alst = NULL;
 }

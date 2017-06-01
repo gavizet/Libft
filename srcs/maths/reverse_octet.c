@@ -1,29 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   reverse_octet.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gavizet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/08 00:26:29 by gavizet           #+#    #+#             */
-/*   Updated: 2016/11/16 15:13:42 by gavizet          ###   ########.fr       */
+/*   Created: 2017/06/01 14:07:35 by gavizet           #+#    #+#             */
+/*   Updated: 2017/06/01 14:42:25 by gavizet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_lstdel(t_list **alst, void (*del) (void *, size_t))
+unsigned int	reverse_octet(unsigned int bit)
 {
-	t_list	*elem;
-	t_list	*next;
-
-	elem = *alst;
-	while (elem)
-	{
-		next = elem->next;
-		del(elem->content, elem->content_size);
-		free(elem);
-		elem = next;
-	}
-	*alst = NULL;
+	return ((bit >> 24) + (((bit << 8) >> 24) << 8) +
+			(((bit << 16) >> 24) << 16) + (bit << 24));
 }
