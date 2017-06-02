@@ -1,17 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gavizet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/01 14:18:35 by gavizet           #+#    #+#             */
-/*   Updated: 2017/06/01 14:37:23 by gavizet          ###   ########.fr       */
+/*   Created: 2017/06/02 11:18:35 by gavizet           #+#    #+#             */
+/*   Updated: 2017/06/02 11:23:23 by gavizet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef PRINTF_H
+# define PRINTF_H
+
+# include "libft.h"
 
 # define M_H 1
 # define M_HH 5

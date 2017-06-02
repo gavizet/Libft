@@ -6,11 +6,11 @@
 /*   By: gavizet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/17 14:04:08 by gavizet           #+#    #+#             */
-/*   Updated: 2017/06/01 13:04:36 by gavizet          ###   ########.fr       */
+/*   Updated: 2017/06/02 10:59:50 by gavizet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 static int	my_putchar(char c)
 {

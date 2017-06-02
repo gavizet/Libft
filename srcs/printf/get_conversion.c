@@ -6,11 +6,11 @@
 /*   By: gavizet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/15 16:51:22 by gavizet           #+#    #+#             */
-/*   Updated: 2017/06/01 13:04:16 by gavizet          ###   ########.fr       */
+/*   Updated: 2017/06/02 10:59:09 by gavizet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int		check_conversion_dou(t_format *fmt, va_list args)
 {

@@ -6,11 +6,11 @@
 /*   By: gavizet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 11:07:46 by gavizet           #+#    #+#             */
-/*   Updated: 2017/06/01 13:04:45 by gavizet          ###   ########.fr       */
+/*   Updated: 2017/06/02 10:59:57 by gavizet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int		print_flag_x(t_format *fmt, char *str, int len)
 {

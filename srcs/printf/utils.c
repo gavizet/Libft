@@ -6,11 +6,11 @@
 /*   By: gavizet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 14:09:04 by gavizet           #+#    #+#             */
-/*   Updated: 2017/06/01 13:06:18 by gavizet          ###   ########.fr       */
+/*   Updated: 2017/06/02 11:04:26 by gavizet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int		aff_blank(t_format *fmt)
 {

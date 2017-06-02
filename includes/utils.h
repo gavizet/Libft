@@ -6,12 +6,14 @@
 /*   By: gavizet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 14:29:48 by gavizet           #+#    #+#             */
-/*   Updated: 2017/06/01 16:40:53 by gavizet          ###   ########.fr       */
+/*   Updated: 2017/06/02 11:23:36 by gavizet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
 # define UTILS_H
+
+# include "libft.h"
 
 # define BUFF_SIZE 16
 

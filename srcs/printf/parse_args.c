@@ -6,11 +6,11 @@
 /*   By: gavizet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 14:15:37 by gavizet           #+#    #+#             */
-/*   Updated: 2017/06/01 13:06:09 by gavizet          ###   ########.fr       */
+/*   Updated: 2017/06/02 11:02:59 by gavizet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 void	check_width(char **addr_str, t_format *addr_format)
 {

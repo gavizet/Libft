@@ -6,14 +6,16 @@
 /*   By: gavizet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 14:21:31 by gavizet           #+#    #+#             */
-/*   Updated: 2017/06/01 16:42:05 by gavizet          ###   ########.fr       */
+/*   Updated: 2017/06/02 11:23:07 by gavizet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MATHS_H
 # define MATHS_H
 
-# ifndef
+# include "libft.h"
+
+# ifndef HEXA
 #  define HEXA "0123456789ABCDEF"
 # endif
 

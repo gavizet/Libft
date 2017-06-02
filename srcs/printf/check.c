@@ -6,11 +6,11 @@
 /*   By: gavizet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 14:15:44 by gavizet           #+#    #+#             */
-/*   Updated: 2017/06/01 13:04:03 by gavizet          ###   ########.fr       */
+/*   Updated: 2017/06/02 10:58:25 by gavizet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int		is_type(char c)
 {

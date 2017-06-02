@@ -6,11 +6,11 @@
 /*   By: gavizet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 13:03:49 by gavizet           #+#    #+#             */
-/*   Updated: 2017/06/01 13:05:16 by gavizet          ###   ########.fr       */
+/*   Updated: 2017/06/02 11:01:55 by gavizet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int		apply_flag_percent(t_format *fmt, char **str)
 {

@@ -1,17 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string.h                                           :+:      :+:    :+:   */
+/*   str.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gavizet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/01 14:27:29 by gavizet           #+#    #+#             */
-/*   Updated: 2017/06/01 14:41:34 by gavizet          ###   ########.fr       */
+/*   Created: 2017/06/02 11:21:29 by gavizet           #+#    #+#             */
+/*   Updated: 2017/06/02 11:25:41 by gavizet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRING_H
 # define STRING_H
+
+# include "libft.h"
+# include <stdlib.h>
+# include <stdarg.h>
+# include <string.h>
 
 void				ft_strclr(char *s);
 void				ft_strdel(char **as);
@@ -33,7 +38,6 @@ int					ft_strequ(char const *s1, char const *s2);
 char				*ft_strmap(char const *s, char (*f) (char));
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strstr(const char *str, const char *to_find);
-void				ft_lstiter(t_list *lst, void (*f) (t_list *elem));
 char				*ft_strncat(char *dest, const char *src, size_t n);
 char				*ft_strncpy(char *dest, const char *src, size_t n);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
