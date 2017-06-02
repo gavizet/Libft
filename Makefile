@@ -6,7 +6,7 @@
 #    By: gavizet <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/01 14:43:03 by gavizet           #+#    #+#              #
-#    Updated: 2017/06/02 16:06:59 by gavizet          ###   ########.fr        #
+#    Updated: 2017/06/02 16:17:59 by gavizet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -119,14 +119,20 @@ $(NAME): $(OBJS)
 		@printf "\r$(GREEN)$(BLINK)✅  [$(NAME)] was succesfully created ✅$(NOC)\n"
 
 clean:
-		@rm -f $(OBJS)
-		@rmdir $(OBJS_DIRS) 2> /dev/null || true
-		@rmdir $(OBJS_PATH) 2> /dev/null || true
-		@printf "\r$(YELLOW)⚠️  Deleted object files ⚠️ \033[0m\033[K\n"
+		@if [ -e $(OBJS_PATH) ];\
+		then\
+			rm -rf $(OBJS);\
+			rmdir $(OBJS_DIRS) 2> /dev/null || true;\
+			rmdir $(OBJS_PATH) 2> /dev/null || true;\
+			printf "\r$(YELLOW)⚠️  Deleted object files ⚠️ \033[0m\033[K\n";\
+		fi;
 
 fclean: clean
-		@rm -f $(NAME)
-		@printf "\r$(RED)❌  Deleted [$(NAME)] ❌\033[0m\033[K\n"
+		@if [ -e $(NAME) ];\
+		then\
+			rm -rf $(NAME);\
+			printf "\r$(RED)❌  Deleted [$(NAME)] ❌\033[0m\033[K\n";\
+		fi;
 
 re: fclean all
 #------------------------------------------------------------------------------#
