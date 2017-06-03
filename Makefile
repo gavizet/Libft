@@ -6,7 +6,7 @@
 #    By: gavizet <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/01 14:43:03 by gavizet           #+#    #+#              #
-#    Updated: 2017/06/02 16:17:59 by gavizet          ###   ########.fr        #
+#    Updated: 2017/06/03 14:49:46 by gavizet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,9 +34,6 @@ NAME 		= libft.a
 CC			= gcc
 FLAGS		= -Wall -Wextra -Werror -O3
 #------------------------------------------------------------------------------#
-
-LEN_NAME	= `printf "%s" $(NAME) |wc -c`
-DELTA		= $$(echo "$$(tput cols)-31-$(LEN_NAME)"|bc
 
 #---------------------------------| INCLUDES |---------------------------------#
 SRCS_PATH		= srcs/
@@ -112,11 +109,12 @@ $(OBJS_PATH)%.o: $(SRCS_PATH)%.c $(HEADERS)
 		@mkdir $(OBJS_PATH) 2> /dev/null || true
 		@mkdir $(OBJS_DIRS) 2> /dev/null || true
 		@$(CC) $(FLAGS) $(INCLUDES) -o $@ -c $<
+		@printf "$(notdir $@)... ☑️ $(NOC)\n"
 
 $(NAME): $(OBJS)
 		@ar rc $(NAME) $(OBJS)
 		@ranlib $(NAME)
-		@printf "\r$(GREEN)$(BLINK)✅  [$(NAME)] was succesfully created ✅$(NOC)\n"
+		@printf "\r$(GREEN)✅  [$(NAME)] was succesfully created ✅$(NOC)\n"
 
 clean:
 		@if [ -e $(OBJS_PATH) ];\
