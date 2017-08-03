@@ -6,7 +6,7 @@
 #    By: gavizet <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/01 14:43:03 by gavizet           #+#    #+#              #
-#    Updated: 2017/06/03 14:49:46 by gavizet          ###   ########.fr        #
+#*   Updated: 2017/06/07 14:10:06 by lgiacalo         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,12 @@ VIOLET		= \033[0;35m
 CYAN		= \033[0;36m
 WHITE		= \033[1;37m
 ORANGE		= \033[38;5;202m
+BG_WHITE	= \033[48;5;15m
+BG_BLACK	= \033[48;5;0m
+BG_GREEN	= \033[48;5;2m
+VAR			= \033[38;5;
+CLN			= \033[K
+1LN			= \033[1A
 #------------------------------------------------------------------------------#
 
 #--------------------------------| LIBRARY |-----------------------------------#
@@ -32,7 +38,7 @@ NAME 		= libft.a
 
 #-------------------------------| COMPILATION |--------------------------------#
 CC			= gcc
-FLAGS		= -Wall -Wextra -Werror -O3
+FLAGS		= -Wall -Wextra -Werror
 #------------------------------------------------------------------------------#
 
 #---------------------------------| INCLUDES |---------------------------------#
@@ -101,6 +107,10 @@ HEADERS		= $(addprefix $(INCLUDES_PATH), $(HEAD_FILES))
 #------------------------------------------------------------------------------#
 .PHONY	:	all clean fclean re
 
+#-------------------------------| PROGRESS BAR |-------------------------------#
+INDEX		= 0
+NB_FUNC		= $(words $(SRCS_FILES))
+#------------------------------------------------------------------------------#
 
 #----------------------------------| RULES |-----------------------------------#
 all: $(NAME)
@@ -108,13 +118,18 @@ all: $(NAME)
 $(OBJS_PATH)%.o: $(SRCS_PATH)%.c $(HEADERS)
 		@mkdir $(OBJS_PATH) 2> /dev/null || true
 		@mkdir $(OBJS_DIRS) 2> /dev/null || true
-		@$(CC) $(FLAGS) $(INCLUDES) -o $@ -c $<
-		@printf "$(notdir $@)... ☑️ $(NOC)\n"
+		@$(CC) $(FLAGS) -g $(INCLUDES) -o $@ -c $<
+		@$(eval COMPILED=$(shell echo $$(($(INDEX)*30/$(NB_FUNC)))))
+		@$(eval LEFT=$(shell echo $$((30-$(INDEX)*30/$(NB_FUNC) - 1))))
+		@$(eval PERCENT=$(shell echo $$(($(INDEX)*100/$(NB_FUNC)))))
+		@$(eval COLOR=$(shell list=(160 196 202 208 215 221 226 227 190 154 118 82 46); color=$$(($(PERCENT) * $${#list[@]} / 100)); echo "$${list[$$color]}"))
+		@printf "\r $(VAR)$(COLOR)m$(PERCENT)%%$(NOC) |`printf '$(VAR)$(COLOR)m█%.0s' {0..$(COMPILED)}``printf ' %.0s' {0..$(LEFT)}`$(NOC)| $(notdir $@)... ☑️  $(CLN)"
+		@$(eval INDEX=$(shell echo $$(($(INDEX)+1))))
 
 $(NAME): $(OBJS)
 		@ar rc $(NAME) $(OBJS)
 		@ranlib $(NAME)
-		@printf "\r$(GREEN)✅  [$(NAME)] was succesfully created ✅$(NOC)\n"
+		@printf "\r$(CLN)$(GREEN)✅  [$(NAME)] was succesfully created ✅$(NOC)\n"
 
 clean:
 		@if [ -e $(OBJS_PATH) ];\
@@ -122,14 +137,14 @@ clean:
 			rm -rf $(OBJS);\
 			rmdir $(OBJS_DIRS) 2> /dev/null || true;\
 			rmdir $(OBJS_PATH) 2> /dev/null || true;\
-			printf "\r$(YELLOW)⚠️  Deleted object files ⚠️ \033[0m\033[K\n";\
+			echo "\r$(YELLOW)⚠️  Deleted object files from [libft/$(OBJS_PATH)] ⚠️ \033[0m\033[K";\
 		fi;
 
 fclean: clean
 		@if [ -e $(NAME) ];\
 		then\
 			rm -rf $(NAME);\
-			printf "\r$(RED)❌  Deleted [$(NAME)] ❌\033[0m\033[K\n";\
+			echo "\r$(RED)❌  Deleted [$(NAME)] ❌\033[0m\033[K";\
 		fi;
 
 re: fclean all

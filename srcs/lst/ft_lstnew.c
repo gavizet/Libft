@@ -6,7 +6,7 @@
 /*   By: gavizet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 22:13:52 by gavizet           #+#    #+#             */
-/*   Updated: 2017/01/20 12:52:41 by gavizet          ###   ########.fr       */
+/*   Updated: 2017/06/08 16:22:56 by gavizet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@ t_list		*ft_lstnew(void const *content, size_t content_size)
 		return (NULL);
 	if (!content)
 	{
-		content = NULL;
-		content_size = 0;
+		maillon->content = NULL;
+		maillon->content_size = 0;
 	}
 	else
 	{
-		if (!(maillon->content = ft_memalloc(content_size)))
+		if (!(maillon->content = (void*)ft_memalloc(content_size)))
 			return (NULL);
 		ft_memcpy(maillon->content, content, content_size);
 		maillon->content_size = content_size;
-		maillon->next = NULL;
 	}
+	maillon->next = NULL;
 	return (maillon);
 }

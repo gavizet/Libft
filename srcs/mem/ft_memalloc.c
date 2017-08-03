@@ -6,24 +6,22 @@
 /*   By: gavizet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 10:40:42 by gavizet           #+#    #+#             */
-/*   Updated: 2017/04/17 16:57:04 by gavizet          ###   ########.fr       */
+/*   Updated: 2017/06/08 16:16:52 by gavizet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void				*ft_memalloc(size_t size)
+void		*ft_memalloc(size_t size)
 {
-	int				*tab;
-	size_t			i;
+	void	*new;
 
-	i = 0;
-	if (!(tab = (int*)malloc(sizeof(int) * size)))
-		return (NULL);
-	while (i < size)
+	new = NULL;
+	if (size > 0)
 	{
-		tab[i] = 0;
-		i++;
+		new = malloc(size);
+		if (new)
+			ft_bzero(new, size);
 	}
-	return (tab);
+	return (new);
 }

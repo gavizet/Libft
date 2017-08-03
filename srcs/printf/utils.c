@@ -6,7 +6,7 @@
 /*   By: gavizet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 14:09:04 by gavizet           #+#    #+#             */
-/*   Updated: 2017/06/02 11:04:26 by gavizet          ###   ########.fr       */
+/*   Updated: 2017/06/08 16:34:52 by gavizet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,10 @@ int		putstr_wsign(char *str, t_format *fmt)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (fmt->type == 'X' && (str[i] >= 97 && str[i] < 122))
+		if (fmt->type == 'X' && (str[i] >= 97 && str[i] <= 122))
 			str[i] -= 32;
+		if (fmt->type == 'x' && (str[i] >= 65 && str[i] <= 90))
+			str[i] += 32;
 		if (str[i] == '+' || str[i] == '-')
 			i++;
 		ft_putchar(str[i]);
